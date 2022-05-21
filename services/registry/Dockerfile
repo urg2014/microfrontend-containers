@@ -1,11 +1,11 @@
-FROM node:11.14.0-alpine
+FROM node:14-alpine
+ENV NODE_ENV=production
 
 COPY . .
 
-RUN cd /api \
-  && npm i \
-  && npm run build
-
+RUN cd /api
+RUN npm install --production\
+RUN npm run build
 
 CMD ["node", "/api/dist/index.js"]
 
